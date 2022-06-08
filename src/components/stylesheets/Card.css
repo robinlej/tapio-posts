@@ -1,0 +1,123 @@
+.cards__grid {
+  display: grid;
+  gap: 2em;
+}
+
+.card {
+  border: 1px solid var(--light-grey);
+  padding: 1.5em;
+}
+
+.card__header {
+  margin-bottom: 1.5em;
+}
+
+.card__title {
+  font-size: 2rem;
+  text-transform: capitalize;
+  word-wrap: anywhere;
+  margin-bottom: .5em;
+}
+
+.card__actions {
+  position:relative;
+}
+
+.card__actions__btn {
+  color: var(--light-grey);
+  font-size: 2rem;
+}
+
+.card__actions--displayed {
+  position: absolute;
+  right: 35%;
+  top: 0;
+  transform: translateY(-100%);
+  width:max-content;
+  padding: .5em 1em;
+  background: white;
+  border:1px solid var(--light-grey);
+  display:flex;
+  gap: 1em;
+  border-radius:5px;
+}
+
+.card__action {
+  font-size: 1.5rem;
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.card__action--edit {
+  color: var(--blue-700);
+}
+
+.card__action--delete {
+  color: var(--danger);
+}
+
+.card__author {
+  font-style:italic;
+  color: var(--text-grey);
+}
+
+
+.card__body {
+  margin-bottom: 1em;
+}
+
+
+.readmore {
+  background-color: var(--peach);
+  color: var(--blue-700);
+  font-size: .875rem;
+}
+
+
+.delete-modal {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0 0 0 / 0.65);
+  display:grid;
+  place-items: center;
+}
+
+.delete-modal__content {
+  background-color: #F5F7F0;
+  border-radius: 5px;
+  position: relative;
+  display:flex;
+  gap:.5em;
+  width: min(80vw, 500px);
+  padding:2rem 1rem;
+}
+
+.delete-modal__icon {
+  color: var(--danger);
+  font-size: 5rem;
+  height: 32px;
+}
+
+.delete-modal__content p + p {
+  margin-block: 1em;
+}
+
+.btn--delete,
+.btn--neutral {
+  font-weight: 700;
+}
+
+.btn--delete {
+  color: var(--danger);
+  background-color: var(--danger-bg);
+}
+
+.btn--neutral {
+  color: var(--blue-700);
+  background-color: var(--blue-200);
+}
+
+.p-warning {
+  color: var(--danger);
+  font-weight: 700;
+}
