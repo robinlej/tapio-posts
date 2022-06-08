@@ -1,6 +1,20 @@
+import { useEffect } from "react"
 import { IoWarningOutline } from "react-icons/io5"
 
 const DeleteModal = ({ article, user, deletePost, closeModal }) => {
+  
+  const closeOnEscape = (e) => {
+    if (e.key === 'Escape') {
+      closeModal()
+    }
+  }
+
+  useEffect(() => {
+    window.addEventListener('keyup', closeOnEscape)
+
+    return () => window.removeEventListener('keyup', closeOnEscape)
+  }, [])
+
   return (
     <div className='delete-modal' role='dialog' aria-modal tabIndex={-1}>
       <div className='delete-modal__content'>

@@ -1,4 +1,5 @@
 import { GoHome } from 'react-icons/go'
+import { Link } from 'react-router-dom'
 import { ReactComponent as Pencil } from '../assets/edit-3.svg'
 import './stylesheets/Header.css'
 
@@ -10,14 +11,14 @@ const Header = () => {
       <nav className='nav'>
         <ul className='nav--list'>
           <li className='nav--item'>
-            <a href='#' className='nav--link'>
+            <Link to='/' className='nav--link'>
               <GoHome className='nav--icon' />
-            </a>
+            </Link>
           </li>
           <li className='nav--item'>
-            <a href='#' className='nav--link'>
+            <Link to='/new' className='nav--link'>
               <Pencil className='nav--icon' />
-            </a>
+            </Link>
           </li>
         </ul>
       </nav>

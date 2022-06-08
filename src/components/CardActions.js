@@ -1,9 +1,8 @@
-import { useContext, useEffect, useState } from 'react'
-// import DeleteModal from './DeleteModal'
+import { useContext, useState } from 'react'
+import { PostContext } from '../App'
 import { TbDots } from 'react-icons/tb'
 import { GoTrashcan } from 'react-icons/go'
 import { ReactComponent as Edit } from '../assets/edit-2.svg'
-import { PostContext } from '../App'
 
 const CardActions = ({ article, username }) => {
   const [isOpen, setIsOpen] = useState(false)

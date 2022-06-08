@@ -1,8 +1,13 @@
-const Readmore = (articleURL) => {
+import { Link, Outlet } from "react-router-dom"
+
+const Readmore = ({ articleURL }) => {
   return (
-    <a href={articleURL} className='btn readmore'>
-      Read more
-    </a>
+    <>
+      <Link to={`/post/${articleURL}`} className='btn readmore'>
+        Read more
+      </Link>
+      <Outlet />
+    </>
   )
 }
 

@@ -24,7 +24,7 @@ const Card = ({ article }) => {
             <CardActions article={article} username={user.username} />
           </div>
 
-          <p className='card__author'>by {user.username}</p>
+          <p className='card__author article-author'>by {user.username}</p>
         </div>
 
         <p className='card__body'>
@@ -33,7 +33,7 @@ const Card = ({ article }) => {
             : article.body}
         </p>
 
-        <Readmore articleURL='#' />
+        <Readmore articleURL={article.id} />
       </article>
     )
   }
