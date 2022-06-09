@@ -24,7 +24,7 @@ function App() {
       fetch('https://jsonplaceholder.typicode.com/posts')
         .then((response) => response.json())
         .then((json) => {
-          setPosts(json.slice(0, 10))
+          setPosts(json.slice(0, 10).reverse())
         })
     }
   }, [])

@@ -13,4 +13,5 @@
 .article__body {
   white-space: break-spaces;
   max-width:60ch;
+  font-size: 1.125rem;
 }

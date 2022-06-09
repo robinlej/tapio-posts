@@ -47,7 +47,7 @@ const PostArticle = ({ posts, edit }) => {
         .then((response) => response.json())
         .then((json) => {
           // due to JSONPlaceholder way of working, let's replace the id to have something robust and persistent in the local storage
-          const newId = parseInt(posts[posts.length - 1].id) + 1 
+          const newId = parseInt(posts[0].id) + 1 
           addPost({...json, id: newId})
           setFormSubmitted(newId)
         })
