@@ -16,8 +16,12 @@ const CardActions = ({ article, username }) => {
   return (
     <>
       <div className='card__actions'>
-        <button className='card__actions__btn' aria-label='Open the contextual actions for the article'>
-          <TbDots onClick={showActions} />
+        <button
+          onClick={showActions}
+          className='card__actions__btn'
+          aria-label='Open the contextual actions for the article'
+        >
+          <TbDots />
         </button>
         {isOpen && (
           <>
