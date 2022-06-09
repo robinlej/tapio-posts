@@ -1,5 +1,7 @@
 # Tapio exercise - 2 days CRUD App in React
 
+Try it on https://robinlej.github.io/tapio-posts/.
+
 ## Core app
 
 - CRUD blog-like app:
