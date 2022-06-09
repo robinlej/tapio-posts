@@ -17,21 +17,78 @@ header {
 .nav {
   position: absolute;
   right: 0;
-  padding: 1.5rem;
   background-color: var(--blue-400);
   border-radius: 5px 0 0 5px;
 }
 
-.nav--list {
+.nav__list {
   list-style: none;
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
 }
 
-.nav--icon {
-  font-size: 2rem;
+.nav__link {
+  display: block;
   color: var(--accent-clr);
+  padding: 1rem;
+}
+
+.nav__link--icon {
+  font-size: 2rem;
   width: 2rem;
   height: 2rem;
+}
+
+.nav__link--text {
+  display:none;
+}
+
+@media screen and (min-width: 50rem) {
+  header {
+    height: 300px;
+  }
+  
+  .header__title {
+    font-size:4rem;
+    width: min(1050px, 100%);
+    margin-inline: auto;
+  }
+
+  .nav {
+    right: unset;
+    top:0;
+    left: 50%;
+    border-radius: 0 0 5px 5px;
+  }
+
+  .nav__list {
+    flex-direction: row;
+  }
+
+  .nav__link {
+    display: flex;
+    gap: .5em;
+    padding: 1.5rem;
+    position:relative;
+  }
+
+  .nav__link:not(.active) {
+    color: var(--peach);
+  }
+
+  .nav__link.active::after {
+    content:'';
+    position:absolute;
+    bottom:0;
+    left: 0;
+    right:0;
+    height:3px;
+    background-color: var(--accent-clr);
+    border-radius:5px;
+  }
+
+  .nav__link--text {
+    display:inline;
+    align-self: center;
+  }
 }

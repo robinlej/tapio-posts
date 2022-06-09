@@ -1,5 +1,5 @@
 import { GoHome } from 'react-icons/go'
-import { Link } from 'react-router-dom'
+import { Link, NavLink } from 'react-router-dom'
 import { ReactComponent as Pencil } from '../assets/edit-3.svg'
 import './stylesheets/Header.css'
 
@@ -13,16 +13,18 @@ const Header = () => {
         </Link>
       </p>
       <nav className='nav'>
-        <ul className='nav--list'>
-          <li className='nav--item'>
-            <Link to='/' className='nav--link'>
-              <GoHome className='nav--icon' />
-            </Link>
+        <ul className='nav__list'>
+          <li className='nav__item'>
+            <NavLink to='/' className='link-reset nav__link'>
+              <GoHome className='nav__link--icon' />
+              <span className='nav__link--text'>Home</span>
+            </NavLink>
           </li>
-          <li className='nav--item'>
-            <Link to='/new' className='nav--link'>
-              <Pencil className='nav--icon' />
-            </Link>
+          <li className='nav__item'>
+            <NavLink to='/new' className='link-reset nav__link'>
+              <Pencil className='nav__link--icon' />
+              <span className='nav__link--text'>Post an article</span>
+            </NavLink>
           </li>
         </ul>
       </nav>

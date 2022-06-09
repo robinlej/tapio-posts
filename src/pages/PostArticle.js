@@ -31,6 +31,7 @@ const PostArticle = ({ posts, edit }) => {
     e.preventDefault()
 
     if (titleRef.current.value && contentRef.current.value) {
+      // as it's linked to JSONPlaceholder & there is no user system on the app, I faked the userId to 1 by default
       fetch('https://jsonplaceholder.typicode.com/posts', {
         method: 'POST',
         body: JSON.stringify({

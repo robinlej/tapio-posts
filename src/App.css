@@ -36,7 +36,7 @@ main {
   padding: 2rem;
 }
 
-.link-reset {
+:where(.link-reset) {
   color: inherit;
   text-decoration: none;
 }
@@ -80,4 +80,16 @@ textarea {
 .flex-space-btw {
   display:flex;
   justify-content: space-between;
+}
+
+@media screen and (min-width: 50rem) {
+  main {
+    max-width: 1050px;
+    margin-inline:auto;
+  }
+
+  h1 {
+    text-align:center;
+    font-size: 5rem;
+  }
 }
