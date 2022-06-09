@@ -1,6 +1,8 @@
- @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700&display=swap');
- 
- :root {
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700&display=swap');
+
+:root {
+--blue-900: #0C1933;
+--blue-800: #0F234A;
 --blue-700: #1F4690;
 --blue-400: #3A5BA0;
 --blue-200: #BFCCE8;
@@ -8,7 +10,7 @@
 --accent-clr: #FFA500;
 --peach: #FFE5B4;
 
---text-black: #0C1933;
+--text: var(--blue-900);
 --text-grey: #868D9A;
 
 /* borders */
@@ -16,6 +18,18 @@
 
 --danger: #982121;
 --danger-bg: #F6C5C5;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: dark;
+
+    --text: #fff7ea;
+    --text-grey: #A8B0BF;
+
+    --danger: #ff9292;
+    --danger-bg: #700000;
+  }
 }
 
 *, *::before, *::after {
@@ -29,7 +43,8 @@ body {
   width:100vw;
   line-height: 1.6;
   font-family: Roboto, sans-serif;
-  color: var(--text-black);
+  color: var(--text);
+  background-color: white;
 }
 
 main {
@@ -91,5 +106,21 @@ textarea {
   h1 {
     text-align:center;
     font-size: 5rem;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: var(--blue-900);
+  }
+
+  h1 {
+    color: var(--peach);
+  }
+
+  input,
+  textarea {
+    background-color: var(--blue-800);
+    border-color: var(--blue-400);
   }
 }

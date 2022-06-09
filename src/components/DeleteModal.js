@@ -1,5 +1,6 @@
 import { useEffect, useRef } from "react"
 import { IoWarningOutline } from "react-icons/io5"
+import './stylesheets/DeleteModal.css'
 
 const DeleteModal = ({ article, user, deletePost, closeModal }) => {
   const modalRef = useRef()

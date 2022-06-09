@@ -70,11 +70,9 @@
   color: var(--text-grey);
 }
 
-
 .card__body {
-  margin-bottom: 1em;
+  margin-bottom: 2em;
 }
-
 
 .readmore {
   background-color: var(--peach);
@@ -82,51 +80,23 @@
   font-size: .875rem;
 }
 
+@media (prefers-color-scheme: dark) {
+  .card {
+    border-color: var(--blue-400);
+    background-color: var(--blue-800);
+  }
 
-.delete-modal {
-  position: fixed;
-  inset: 0;
-  background-color: rgba(0 0 0 / 0.65);
-  display:grid;
-  place-items: center;
-}
+  .card__actions--displayed {
+    background-color: var(--blue-900);
+    border-color: var(--blue-400);
+  }
 
-.delete-modal__content {
-  background-color: #F5F7F0;
-  border-radius: 5px;
-  position: relative;
-  display:flex;
-  gap:.5em;
-  width: min(80vw, 500px);
-  padding:2rem 1rem;
-}
+  .card__action--edit {
+    color: var(--blue-200);
+  }
 
-.delete-modal__icon {
-  color: var(--danger);
-  font-size: 5rem;
-  height: 32px;
-}
-
-.delete-modal__content p + p {
-  margin-block: 1em;
-}
-
-.btn--delete,
-.btn--neutral {
-  font-weight: 700;
-}
-
-.btn--delete {
-  color: var(--danger);
-  background-color: var(--danger-bg);
-}
-
-.btn--neutral {
-  color: var(--blue-700);
-  background-color: var(--blue-200);
-}
-
-.p-warning {
-  color: var(--danger);
-  font-weight: 700;
+  .readmore {
+    background-color: var(--blue-700);
+    color: var(--peach);
+  }
 }

@@ -11,6 +11,8 @@
 .new-article__title,
 .new-article__content {
   padding: .5em;
+  border-radius:3px;
+  border: 1px solid var(--light-grey);
 }
 
 .new-article__btn {
@@ -45,5 +47,17 @@
   }
   100% {
     transform: translateX(0);
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .new-article__title,
+  .new-article__content {
+    border-color: var(--blue-400);
+  }
+
+  .new-article__btn {
+    background-color: var(--peach);
+    color: var(--blue-800);
   }
 }
