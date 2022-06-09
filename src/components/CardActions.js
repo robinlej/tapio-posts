@@ -14,38 +14,36 @@ const CardActions = ({ article, username }) => {
   }
 
   return (
-    <>
-      <div className='card__actions'>
-        <button
-          onClick={showActions}
-          className='card__actions__btn'
-          aria-label='Open the contextual actions for the article'
-        >
-          <TbDots />
-        </button>
-        {isOpen && (
-          <>
-            <div className='card__actions--displayed'>
-              <Link
-                to={`/edit/${article.id}`}
-                className='card__action card__action--edit'
-                aria-label='Edit the article'
-                style={{display:"grid"}}
-              >
-                <EditIcon />
-              </Link>
-              <button
-                onClick={() => openModal(article, username)}
-                className='card__action card__action--delete'
-                aria-label='Delete the article'
-              >
-                <GoTrashcan />
-              </button>
-            </div>
-          </>
-        )}
-      </div>
-    </>
+    <div className='card__actions'>
+      <button
+        onClick={showActions}
+        className='card__actions__btn'
+        aria-label='Open the contextual actions for the article'
+      >
+        <TbDots />
+      </button>
+      {isOpen && (
+        <>
+          <div className='card__actions--displayed'>
+            <Link
+              to={`/edit/${article.id}`}
+              className='card__action card__action--edit'
+              aria-label='Edit the article'
+              style={{display:"grid"}}
+            >
+              <EditIcon />
+            </Link>
+            <button
+              onClick={() => openModal(article, username)}
+              className='card__action card__action--delete'
+              aria-label='Delete the article'
+            >
+              <GoTrashcan />
+            </button>
+          </div>
+        </>
+      )}
+    </div>
   )
 }
 

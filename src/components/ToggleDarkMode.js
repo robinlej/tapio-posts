@@ -11,6 +11,7 @@ const ToggleDarkMode = () => {
       false
   )
 
+  // Apply dark mode & save it in local storage
   useEffect(() => {
     if (isDarkModeOn) {
       localStorage.setItem('tapio-blog-darkmode', JSON.stringify(isDarkModeOn))

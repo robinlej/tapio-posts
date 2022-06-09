@@ -19,6 +19,7 @@ function App() {
     JSON.parse(window.localStorage.getItem('posts'))
   )
 
+  // Get first posts if none in local storage
   useEffect(() => {
     if (posts === null) {
       fetch('https://jsonplaceholder.typicode.com/posts')
@@ -29,11 +30,12 @@ function App() {
     }
   }, [])
 
+  // Update posts in local storage
   useEffect(() => {
     window.localStorage.setItem('posts', JSON.stringify(posts))
   }, [posts])
 
-
+  // Delete post
   useEffect(() => {
     if (deletedItem) {
       // This fetch is useful in a real app environment, but actually useless here as it won't do anything.

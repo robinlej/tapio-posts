@@ -12,56 +12,57 @@ const DeleteModal = ({ article, user, deletePost, closeModal }) => {
   }
 
   useEffect(() => {
-      const modal = modalRef.current
-
-      const focusableElements = modal
-        ? [
-            ...modal.querySelectorAll(
-              '[href], button, [tabindex], select, textarea, input'
-            ),
-          ]
-        : []
-      const firstFocusableElement = focusableElements[0]
-      const lastFocusableElement =
-        focusableElements[focusableElements.length - 1]
-
-      firstFocusableElement?.focus()
-
-      const focusAfterLastElement = (e) => {
-        if (
-          e.key === 'Tab' &&
-          !e.shiftKey &&
-          document.activeElement === lastFocusableElement
-        ) {
-          e.preventDefault()
-          firstFocusableElement.focus()
-        }
-      }
-
-      const focusBeforeFirstElement = (e) => {
-        if (
-          e.key === 'Tab' &&
-          e.shiftKey &&
-          document.activeElement === firstFocusableElement
-        ) {
-          e.preventDefault()
-          lastFocusableElement.focus()
-        }
-      }
-
-      document.addEventListener('keydown', focusAfterLastElement)
-      document.addEventListener('keydown', focusBeforeFirstElement)
-
-      return () => {
-        document.removeEventListener('keydown', focusAfterLastElement)
-        document.removeEventListener('keydown', focusBeforeFirstElement)
-      }
-    }, [])
-
-  useEffect(() => {
     window.addEventListener('keyup', closeOnEscape)
 
     return () => window.removeEventListener('keyup', closeOnEscape)
+  }, [])
+
+  // Trap the focus within the modal
+  useEffect(() => {
+    const modal = modalRef.current
+
+    const focusableElements = modal
+      ? [
+          ...modal.querySelectorAll(
+            '[href], button, [tabindex], select, textarea, input'
+          ),
+        ]
+      : []
+    const firstFocusableElement = focusableElements[0]
+    const lastFocusableElement =
+      focusableElements[focusableElements.length - 1]
+
+    firstFocusableElement?.focus()
+
+    const focusAfterLastElement = (e) => {
+      if (
+        e.key === 'Tab' &&
+        !e.shiftKey &&
+        document.activeElement === lastFocusableElement
+      ) {
+        e.preventDefault()
+        firstFocusableElement.focus()
+      }
+    }
+
+    const focusBeforeFirstElement = (e) => {
+      if (
+        e.key === 'Tab' &&
+        e.shiftKey &&
+        document.activeElement === firstFocusableElement
+      ) {
+        e.preventDefault()
+        lastFocusableElement.focus()
+      }
+    }
+
+    document.addEventListener('keydown', focusAfterLastElement)
+    document.addEventListener('keydown', focusBeforeFirstElement)
+
+    return () => {
+      document.removeEventListener('keydown', focusAfterLastElement)
+      document.removeEventListener('keydown', focusBeforeFirstElement)
+    }
   }, [])
 
   return (

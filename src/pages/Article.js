@@ -13,6 +13,8 @@ const Article = ({ posts }) => {
   const [article, setArticle] = useState(null)
   const [user, setUser] = useState(null)
 
+  // Faking the API request
+  // But to prevent errors if new post is not in the API DB, it fetches it from the local storage
   useEffect(() => {
     if (posts === null) {
       fetch(`https://jsonplaceholder.typicode.com/posts/${params.postId}`)
@@ -26,6 +28,7 @@ const Article = ({ posts }) => {
     }
   }, [posts])
 
+  // Get the user corresponding to the userId
   useEffect(() => {
     if (article) {
       fetch(`https://jsonplaceholder.typicode.com/users/${article.userId}`)

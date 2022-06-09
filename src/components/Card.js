@@ -7,6 +7,7 @@ const Card = ({ article }) => {
   
   const [user, setUser] = useState(null)
 
+  // Get the user corresponding to the userId
   useEffect(() => {
     fetch(`https://jsonplaceholder.typicode.com/users/${article.userId}`)
       .then((response) => response.json())

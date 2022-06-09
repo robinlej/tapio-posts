@@ -97,3 +97,9 @@ header {
     align-self: center;
   }
 }
+
+/* Dark mode */
+
+.darkmode header {
+  background-color: var(--blue-750);
+}
