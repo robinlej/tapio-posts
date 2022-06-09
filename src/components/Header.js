@@ -7,7 +7,11 @@ const Header = () => {
 
   return (
     <header>
-      <p className='header__title'>Blog</p>
+      <p className='header__title'>
+        <Link to='/' className='link-reset'>
+          Blog
+        </Link>
+      </p>
       <nav className='nav'>
         <ul className='nav--list'>
           <li className='nav--item'>

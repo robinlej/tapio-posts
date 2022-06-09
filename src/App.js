@@ -59,21 +59,43 @@ function App() {
   }
 
   const addPost = (newPost) => {
-    setPosts(prev => [...prev, newPost])
+    setPosts((prev) => [newPost, ...prev])
   }
 
   const deletePost = (articleId) => {
     setDeletedItem(articleId)
     closeModal()
   }
-
-  const editPost = () => {}
   
+  const editPost = (post) => {
+    fetch(`https://jsonplaceholder.typicode.com/posts/${post.id}`, {
+      method: 'PUT',
+      body: JSON.stringify({
+        title: post.title,
+        body: post.body,
+        userId: post.userId,
+      }),
+      headers: {
+        'Content-type': 'application/json; charset=UTF-8',
+      },
+    })
+      .then((response) => response.json())
+      .then((json) => {
+        const updatedPosts = posts.map(p => {
+          if (p.id === parseInt(post.id)) {
+            return json
+          }
+          return p
+        })
+        setPosts(updatedPosts)
+      })
+  }
+
   if (posts) {
     return (
       <div className='App'>
         <PostContext.Provider
-          value={{ openModal, closeModal, deletePost, addPost, deletedItem }}
+          value={{ openModal, closeModal, deletePost, addPost, editPost, deletedItem }}
         >
           <Router>
             <Header />
@@ -83,11 +105,11 @@ function App() {
               <Route
                 path='/new'
                 element={
-                  <PostArticle lastPostId={posts[posts.length - 1].id} />
+                  <PostArticle posts={posts} />
                 }
               />
               <Route path='/post/:postId' element={<Article posts={posts} />} />
-              {/* <Route path='/edit/:postId' element={} /> */}
+              <Route path='/edit/:postId' element={<PostArticle edit={true} posts={posts} />} />
             </Routes>
           </Router>
         </PostContext.Provider>

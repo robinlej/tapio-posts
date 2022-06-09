@@ -1,12 +1,13 @@
 import { useContext, useState } from 'react'
+import { Link } from 'react-router-dom'
 import { PostContext } from '../App'
 import { TbDots } from 'react-icons/tb'
 import { GoTrashcan } from 'react-icons/go'
-import { ReactComponent as Edit } from '../assets/edit-2.svg'
+import { ReactComponent as EditIcon } from '../assets/edit-2.svg'
 
 const CardActions = ({ article, username }) => {
   const [isOpen, setIsOpen] = useState(false)
-  const { openModal, editPost } = useContext(PostContext)
+  const { openModal } = useContext(PostContext)
 
   const showActions = () => {
     setIsOpen(!isOpen)
@@ -21,12 +22,13 @@ const CardActions = ({ article, username }) => {
         {isOpen && (
           <>
             <div className='card__actions--displayed'>
-              <button
-                onClick={editPost}
-                className='card__action card__action--edit'
-              >
-                <Edit />
-              </button>
+              <Link to={`/edit/${article.id}`}>
+                <button
+                  className='card__action card__action--edit'
+                >
+                  <EditIcon />
+                </button>
+              </Link>
               <button
                 onClick={() => openModal(article, username)}
                 className='card__action card__action--delete'

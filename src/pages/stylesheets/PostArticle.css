@@ -21,3 +21,29 @@
   width: max-content;
   align-self: end;
 }
+
+.error {
+  color: var(--danger);
+  background-color: var(--danger-bg);
+  padding: .5em 1em;
+  border-radius:5px;
+}
+
+.form-error {
+  animation: shake .3s;
+}
+
+@keyframes shake {
+  0% {
+    transform: translateX(0);
+  }
+  40% {
+    transform: translateX(-10px);
+  }
+  70% {
+    transform: translateX(10px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}

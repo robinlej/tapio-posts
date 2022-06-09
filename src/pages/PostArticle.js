@@ -1,46 +1,94 @@
-import { useContext, useRef, useState } from "react"
-import { Navigate } from "react-router-dom"
+import { useContext, useEffect, useRef, useState } from "react"
+import { Navigate, useParams } from "react-router-dom"
 import { PostContext } from "../App"
 
 import './stylesheets/PostArticle.css'
 
-const PostArticle = ({ lastPostId }) => {
-  const { addPost } = useContext(PostContext)
+const PostArticle = ({ posts, edit }) => {
+  const { addPost, editPost } = useContext(PostContext)
+
+  const params = useParams()
 
   const titleRef = useRef()
   const contentRef = useRef()
-  const [postSubmitted, setPostSubmitted] = useState(false)
+
+  const [formSubmitted, setFormSubmitted] = useState(null)
+  const [error, setError] = useState(false)
+
+  const currentPost = edit ? posts.find((post) => post.id === parseInt(params.postId)) : null
+
+  useEffect(() => {
+    titleRef.current.value = edit
+      ? currentPost.title
+      : ''
+  }, [titleRef])
+
+  useEffect(() => {
+    contentRef.current.value = edit ? currentPost.body : ''
+  }, [contentRef])
 
   const submitArticle = (e) => {
     e.preventDefault()
 
-    fetch('https://jsonplaceholder.typicode.com/posts', {
-      method: 'POST',
-      body: JSON.stringify({
+    if (titleRef.current.value && contentRef.current.value) {
+      fetch('https://jsonplaceholder.typicode.com/posts', {
+        method: 'POST',
+        body: JSON.stringify({
+          title: titleRef.current.value,
+          body: contentRef.current.value,
+          userId: 1,
+        }),
+        headers: {
+          'Content-type': 'application/json; charset=UTF-8',
+        },
+      })
+        .then((response) => response.json())
+        .then((json) => {
+          // due to JSONPlaceholder way of working, let's replace the id to have something robust and persistent in the local storage
+          const newId = parseInt(posts[posts.length - 1].id) + 1 
+          addPost({...json, id: newId})
+          setFormSubmitted(newId)
+        })
+    } else {
+      setError(true)
+    }
+  }
+
+  const handleEditClick = (e) => {
+    e.preventDefault()
+
+    if (titleRef.current.value && contentRef.current.value) {
+      const post = {
+        id: params.postId,
+        userId: currentPost.userId,
         title: titleRef.current.value,
         body: contentRef.current.value,
-        userId: 1,
-      }),
-      headers: {
-        'Content-type': 'application/json; charset=UTF-8',
-      },
-    })
-      .then((response) => response.json())
-      .then((json) => {
-        // let's replace the id to have something robust and persistent in the local storage
-        const newId = parseInt(lastPostId) + 1 
-        addPost({...json, id: newId})
-        setPostSubmitted(newId)
+      }
 
-      })
-
+      editPost(post)
+      setFormSubmitted(post.id)
+    } else {
+      setError(true)
+    }
   }
+
+  const pageTitle = edit ? <h1>Edit the article</h1> : <h1>Post an article</h1>
+  const submitButton = edit ? (
+    <button onClick={handleEditClick} className='btn new-article__btn'>
+      Edit
+    </button>
+  ) : (
+    <button onClick={submitArticle} className='btn new-article__btn'>
+      Submit
+    </button>
+  )
 
   return (
     <main>
-      <h1>Post an article</h1>
+      {pageTitle}
 
-      <form className='new-article'>
+      <form className={`new-article ${error ? 'form-error' : null}`}>
+        {error && <p className="error">Please complete both fields.</p>}
         <div className='new-article__element'>
           <label htmlFor='title'>Title</label>
           <input
@@ -61,11 +109,10 @@ const PostArticle = ({ lastPostId }) => {
             placeholder='What do you have on your mind?'
           ></textarea>
         </div>
-        <button onClick={submitArticle} className='btn new-article__btn'>
-          Submit
-        </button>
+        {submitButton}
       </form>
-      {postSubmitted && <Navigate replace to={`/post/${postSubmitted}`} />}
+
+      {formSubmitted && <Navigate replace to={`/post/${formSubmitted}`} />}
     </main>
   )
 }
