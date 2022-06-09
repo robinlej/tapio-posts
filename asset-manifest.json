@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/tapio-posts/static/css/main.7838d181.css",
-    "main.js": "/tapio-posts/static/js/main.1e27b3e2.js",
+    "main.js": "/tapio-posts/static/js/main.495a0442.js",
     "index.html": "/tapio-posts/index.html",
     "static/media/edit-3.svg": "/tapio-posts/static/media/edit-3.42fd3140828f74064ae7b15883577984.svg",
     "static/media/edit-2.svg": "/tapio-posts/static/media/edit-2.015e804497d2bef5ca19a5b5ad6a22fc.svg",
     "main.7838d181.css.map": "/tapio-posts/static/css/main.7838d181.css.map",
-    "main.1e27b3e2.js.map": "/tapio-posts/static/js/main.1e27b3e2.js.map"
+    "main.495a0442.js.map": "/tapio-posts/static/js/main.495a0442.js.map"
   },
   "entrypoints": [
     "static/css/main.7838d181.css",
-    "static/js/main.1e27b3e2.js"
+    "static/js/main.495a0442.js"
   ]
 }
