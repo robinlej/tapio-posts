@@ -16,7 +16,7 @@ const CardActions = ({ article, username }) => {
   return (
     <>
       <div className='card__actions'>
-        <button className='card__actions__btn'>
+        <button className='card__actions__btn' aria-label='Open the contextual actions for the article'>
           <TbDots onClick={showActions} />
         </button>
         {isOpen && (
@@ -25,6 +25,7 @@ const CardActions = ({ article, username }) => {
               <Link to={`/edit/${article.id}`}>
                 <button
                   className='card__action card__action--edit'
+                  aria-label='Edit the article'
                 >
                   <EditIcon />
                 </button>
@@ -32,6 +33,7 @@ const CardActions = ({ article, username }) => {
               <button
                 onClick={() => openModal(article, username)}
                 className='card__action card__action--delete'
+                aria-label='Delete the article'
               >
                 <GoTrashcan />
               </button>

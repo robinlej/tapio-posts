@@ -15,13 +15,13 @@ const Header = () => {
       <nav className='nav'>
         <ul className='nav__list'>
           <li className='nav__item'>
-            <NavLink to='/' className='link-reset nav__link'>
+            <NavLink to='/' className='link-reset nav__link' aria-label='Home'>
               <GoHome className='nav__link--icon' />
               <span className='nav__link--text'>Home</span>
             </NavLink>
           </li>
           <li className='nav__item'>
-            <NavLink to='/new' className='link-reset nav__link'>
+            <NavLink to='/new' className='link-reset nav__link' aria-label='Post an article'>
               <Pencil className='nav__link--icon' />
               <span className='nav__link--text'>Post an article</span>
             </NavLink>

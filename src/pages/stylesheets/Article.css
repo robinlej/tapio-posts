@@ -12,4 +12,5 @@
 
 .article__body {
   white-space: break-spaces;
+  max-width:60ch;
 }

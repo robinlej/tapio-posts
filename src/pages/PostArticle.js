@@ -21,6 +21,7 @@ const PostArticle = ({ posts, edit }) => {
     titleRef.current.value = edit
       ? currentPost.title
       : ''
+    titleRef.current.focus()
   }, [titleRef])
 
   useEffect(() => {
@@ -89,7 +90,7 @@ const PostArticle = ({ posts, edit }) => {
       {pageTitle}
 
       <form className={`new-article ${error ? 'form-error' : null}`}>
-        {error && <p className="error">Please complete both fields.</p>}
+        {error && <p role="alert" className="error">Please complete both fields.</p>}
         <div className='new-article__element'>
           <label htmlFor='title'>Title</label>
           <input
