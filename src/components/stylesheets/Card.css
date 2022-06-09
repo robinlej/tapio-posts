@@ -81,25 +81,25 @@
   transition: filter .2s ease-in;
 }
 
-@media (prefers-color-scheme: dark) {
-  .card {
-    border-color: var(--blue-400);
-    background-color: var(--blue-800);
-  }
 
-  .card__actions--displayed {
-    background-color: var(--blue-900);
-    border-color: var(--blue-400);
-  }
+/* Dark mode */ 
+.darkmode .card {
+  border-color: var(--blue-400);
+  background-color: var(--blue-800);
+}
 
-  .card__action--edit {
-    color: var(--blue-200);
-  }
+.darkmode .card__actions--displayed {
+  background-color: var(--blue-900);
+  border-color: var(--blue-400);
+}
 
-  .readmore {
-    background-color: var(--blue-700);
-    color: var(--peach);
-  }
+.darkmode .card__action--edit {
+  color: var(--blue-200);
+}
+
+.darkmode .readmore {
+  background-color: var(--blue-700);
+  color: var(--peach);
 }
 
 @media screen and (min-width: 50rem) {

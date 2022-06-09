@@ -50,19 +50,18 @@
   }
 }
 
-@media (prefers-color-scheme: dark) {
-  .new-article__title,
-  .new-article__content {
-    border-color: var(--blue-400);
-  }
+/* Dark mode */
+.darkmode .new-article__title,
+.darkmode .new-article__content {
+  border-color: var(--blue-400);
+}
 
-  .new-article__btn {
-    background-color: var(--peach);
-    color: var(--blue-800);
-    transition: filter .2s ease-out;
-  }
+.darkmode .new-article__btn {
+  background-color: var(--peach);
+  color: var(--blue-800);
+  transition: filter .2s ease-out;
+}
 
-  .new-article__btn:hover {
-    filter:brightness(95%) saturate(150%);
-  }
+.darkmode .new-article__btn:hover {
+  filter:brightness(95%) saturate(150%);
 }

@@ -22,16 +22,14 @@
 --light-shadow: 0px 2px 7px rgba(0 0 0 / .2);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    color-scheme: dark;
+.darkmode {
+  color-scheme: dark;
 
-    --text: #fff7ea;
-    --text-grey: #A8B0BF;
+  --text: #fff7ea;
+  --text-grey: #A8B0BF;
 
-    --danger: #ff9292;
-    --danger-bg: #700000;
-  }
+  --danger: #ff9292;
+  --danger-bg: #700000;
 }
 
 *, *::before, *::after {
@@ -117,18 +115,17 @@ textarea {
   }
 }
 
-@media (prefers-color-scheme: dark) {
-  body {
-    background-color: var(--blue-900);
-  }
+/* Dark mode */
+body.darkmode {
+  background-color: var(--blue-900);
+}
 
-  h1 {
-    color: var(--peach);
-  }
+.darkmode h1 {
+  color: var(--peach);
+}
 
-  input,
-  textarea {
-    background-color: var(--blue-800);
-    border-color: var(--blue-400);
-  }
+.darkmode input,
+.darkmode textarea {
+  background-color: var(--blue-800);
+  border-color: var(--blue-400);
 }

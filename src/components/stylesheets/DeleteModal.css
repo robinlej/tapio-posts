@@ -46,13 +46,12 @@
   font-weight: 700;
 }
 
-@media (prefers-color-scheme:dark) {
-  .delete-modal__content {
-    background-color: var(--blue-800);
-  }
+/* Dark mode */
+.darkmode .delete-modal__content {
+  background-color: var(--blue-800);
+}
 
-  .btn--neutral {
-    color: var(--blue-200);
-    background-color: var(--blue-700);
-  }
+.darkmode .btn--neutral {
+  color: var(--blue-200);
+  background-color: var(--blue-700);
 }

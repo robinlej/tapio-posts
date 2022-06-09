@@ -95,21 +95,26 @@ function App() {
     return (
       <div className='App'>
         <PostContext.Provider
-          value={{ openModal, closeModal, deletePost, addPost, editPost, deletedItem }}
+          value={{
+            openModal,
+            closeModal,
+            deletePost,
+            addPost,
+            editPost,
+            deletedItem,
+          }}
         >
           <Router>
             <Header />
 
             <Routes>
               <Route path='/' exact element={<Home posts={posts} />} />
-              <Route
-                path='/new'
-                element={
-                  <PostArticle posts={posts} />
-                }
-              />
+              <Route path='/new' element={<PostArticle posts={posts} />} />
               <Route path='/post/:postId' element={<Article posts={posts} />} />
-              <Route path='/edit/:postId' element={<PostArticle edit={true} posts={posts} />} />
+              <Route
+                path='/edit/:postId'
+                element={<PostArticle edit={true} posts={posts} />}
+              />
             </Routes>
           </Router>
         </PostContext.Provider>
