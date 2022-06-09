@@ -26,13 +26,13 @@ const CardActions = ({ article, username }) => {
         {isOpen && (
           <>
             <div className='card__actions--displayed'>
-              <Link to={`/edit/${article.id}`}>
-                <button
-                  className='card__action card__action--edit'
-                  aria-label='Edit the article'
-                >
-                  <EditIcon />
-                </button>
+              <Link
+                to={`/edit/${article.id}`}
+                className='card__action card__action--edit'
+                aria-label='Edit the article'
+                style={{display:"grid"}}
+              >
+                <EditIcon />
               </Link>
               <button
                 onClick={() => openModal(article, username)}

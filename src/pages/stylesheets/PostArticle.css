@@ -59,5 +59,10 @@
   .new-article__btn {
     background-color: var(--peach);
     color: var(--blue-800);
+    transition: filter .2s ease-out;
+  }
+
+  .new-article__btn:hover {
+    filter:brightness(95%) saturate(150%);
   }
 }

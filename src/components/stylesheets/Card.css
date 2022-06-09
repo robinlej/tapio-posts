@@ -78,6 +78,7 @@
   background-color: var(--peach);
   color: var(--blue-700);
   font-size: .875rem;
+  transition: filter .2s ease-in;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -98,5 +99,11 @@
   .readmore {
     background-color: var(--blue-700);
     color: var(--peach);
+  }
+}
+
+@media screen and (min-width: 50rem) {
+  .readmore:hover {
+    filter:brightness(95%) saturate(150%);
   }
 }
