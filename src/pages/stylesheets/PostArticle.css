@@ -1,0 +1,23 @@
+.new-article,
+.new-article__element {
+  display:flex;
+  flex-direction: column;
+}
+
+.new-article {
+  gap: 1rem;
+}
+
+.new-article__title,
+.new-article__content {
+  padding: .5em;
+}
+
+.new-article__btn {
+  background-color: var(--blue-700);
+  color: var(--peach);
+  text-transform: uppercase;
+  font-weight: 700;
+  width: max-content;
+  align-self: end;
+}

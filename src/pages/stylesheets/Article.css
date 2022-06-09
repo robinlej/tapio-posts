@@ -10,3 +10,6 @@
   margin-bottom: 2rem;
 }
 
+.article__body {
+  white-space: break-spaces;
+}

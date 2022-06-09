@@ -2,9 +2,10 @@ import { useContext, useEffect, useState } from "react"
 import { Navigate, useParams } from "react-router-dom"
 import { PostContext } from "../App"
 import CardActions from "../components/CardActions"
+
 import './stylesheets/Article.css'
 
-const Article = () => {
+const Article = ({ posts }) => {
   let params = useParams()
 
   const { deletedItem } = useContext(PostContext)
@@ -13,12 +14,17 @@ const Article = () => {
   const [user, setUser] = useState(null)
 
   useEffect(() => {
-    fetch(`https://jsonplaceholder.typicode.com/posts/${params.postId}`)
-      .then((response) => response.json())
-      .then((json) => {
-        setArticle(json)
-      })
-  }, [])
+    if (posts === null) {
+      fetch(`https://jsonplaceholder.typicode.com/posts/${params.postId}`)
+        .then((response) => response.json())
+        .then((json) => {
+          setArticle(json)
+        })
+    } else {
+      const currentArticle = posts.find(post => post.id === parseInt(params.postId))
+      setArticle(currentArticle)
+    }
+  }, [posts])
 
   useEffect(() => {
     if (article) {
